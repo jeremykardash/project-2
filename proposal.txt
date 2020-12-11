@@ -1,0 +1,28 @@
+Basketball/Baseball proposal:
+
+Group members;
+(1) Aaron Spivak 
+(2) Asad Dadabhoy 
+(3) Jasper Parson 
+(4) Jeremy Kardash 
+(5) Matt Davies 
+
+Summary
+Our group plans to look at the relationship between players in the NBA/MLB and their statistics. We will look into players salary, statistic X, age, 
+advanceds stats. The goal is to develop a robust database from multiple sources inclusing: sports-reference API, MLB.com, Spotrac, Data.world.
+
+Database: SQL
+
+We will extract the data from the original data sources, transform the datasets with merges and general cleanup and load into a SQL databse
+
+Possible data sources:
+General basketball statistics: https://www.basketball-reference.com
+Advanced basketball statistics: https://data.world/fivethirtyeight/nba-raptor-metrics
+Contract information: https://www.basketball-reference.com/contracts/players.html
+NBA draft combine measurements: https://data.world/achou/nba-draft-combine-measurements
+
+
+
+
+
+
