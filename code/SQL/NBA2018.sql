@@ -3,6 +3,7 @@
 
 
 CREATE TABLE "players" (
+    "index" INT   NOT NULL,
     "player_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
     CONSTRAINT "pk_players" PRIMARY KEY (
@@ -11,6 +12,7 @@ CREATE TABLE "players" (
 );
 
 CREATE TABLE "teams" (
+    "index" INT   NOT NULL,
     "team_id" INT   NOT NULL,
     "abbreviation" VARCHAR(3)   NOT NULL,
     "nickname" VARCHAR(100)   NOT NULL,
@@ -21,25 +23,25 @@ CREATE TABLE "teams" (
      )
 );
 
-CREATE TABLE "players-team" (
+CREATE TABLE "players_team" (
     "index" INT   NOT NULL,
     "player_id" INT   NOT NULL,
     "team_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
     "season" INT   NOT NULL,
-    CONSTRAINT "pk_players-team" PRIMARY KEY (
+    CONSTRAINT "pk_players_team" PRIMARY KEY (
         "index"
      )
 );
 
-CREATE TABLE "salaries" (
+CREATE TABLE "salary" (
     "index" INT   NOT NULL,
     "player_id" INT   NOT NULL,
     "team_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
     "salary" INT   NOT NULL,
     "season" INT   NOT NULL,
-    CONSTRAINT "pk_salaries" PRIMARY KEY (
+    CONSTRAINT "pk_salary" PRIMARY KEY (
         "index"
      )
 );
@@ -50,22 +52,22 @@ CREATE TABLE "combine" (
     "player_name" VARCHAR(100)   NOT NULL,
     "year" INT   NOT NULL,
     "team_id" INT   NOT NULL,
-    "draft_pick" INT   NOT NULL,
-    "height_no_shoes" INT   NOT NULL,
-    "height_with_shoes" INT   NOT NULL,
-    "wingspan" INT   NOT NULL,
-    "standing_reach" INT   NOT NULL,
-    "vertical_max" INT   NOT NULL,
-    "vertical_max_reach" INT   NOT NULL,
-    "vertical_no_step" INT   NOT NULL,
-    "vertical_no_step_reach" INT   NOT NULL,
+    "draft_pick" REAL   NOT NULL,
+    "height_no_shoes" REAL   NOT NULL,
+    "height_with_shoes" REAL   NOT NULL,
+    "wingspan" REAL   NOT NULL,
+    "standing_reach" REAL   NOT NULL,
+    "vertical_max" REAL   NOT NULL,
+    "vertical_max_reach" REAL   NOT NULL,
+    "vertical_no_step" REAL   NOT NULL,
+    "vertical_no_step_reach" REAL   NOT NULL,
     "weight" INT   NOT NULL,
-    "body_fat" INT   NOT NULL,
-    "hand_length" INT   NOT NULL,
-    "hand_width" INT   NOT NULL,
+    "body_fat" REAL   NOT NULL,
+    "hand_length" REAL   NOT NULL,
+    "hand_width" REAL   NOT NULL,
     "bench" INT   NOT NULL,
-    "agility" INT   NOT NULL,
-    "sprint" INT   NOT NULL,
+    "agility" REAL   NOT NULL,
+    "sprint" REAL   NOT NULL,
     "season" INT   NOT NULL,
     CONSTRAINT "pk_combine" PRIMARY KEY (
         "index"
@@ -135,16 +137,16 @@ CREATE TABLE "stats" (
      )
 );
 
-ALTER TABLE "players-team" ADD CONSTRAINT "fk_players-team_player_id" FOREIGN KEY("player_id")
+ALTER TABLE "players_team" ADD CONSTRAINT "fk_players_team_player_id" FOREIGN KEY("player_id")
 REFERENCES "players" ("player_id");
 
-ALTER TABLE "players-team" ADD CONSTRAINT "fk_players-team_team_id" FOREIGN KEY("team_id")
+ALTER TABLE "players_team" ADD CONSTRAINT "fk_players_team_team_id" FOREIGN KEY("team_id")
 REFERENCES "teams" ("team_id");
 
-ALTER TABLE "salaries" ADD CONSTRAINT "fk_salaries_player_id" FOREIGN KEY("player_id")
+ALTER TABLE "salary" ADD CONSTRAINT "fk_salary_player_id" FOREIGN KEY("player_id")
 REFERENCES "players" ("player_id");
 
-ALTER TABLE "salaries" ADD CONSTRAINT "fk_salaries_team_id" FOREIGN KEY("team_id")
+ALTER TABLE "salary" ADD CONSTRAINT "fk_salary_team_id" FOREIGN KEY("team_id")
 REFERENCES "teams" ("team_id");
 
 ALTER TABLE "combine" ADD CONSTRAINT "fk_combine_player_id" FOREIGN KEY("player_id")
