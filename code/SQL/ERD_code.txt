@@ -1,9 +1,7 @@
 players
 -
 player_id INT PK
-team_id INT FK >- teams.team_id
 player_name VARCHAR(100)
-season INT
 
 teams
 -
@@ -13,9 +11,18 @@ nickname VARCHAR(100)
 city VARCHAR(100)
 arena VARCHAR(100)
 
+players-team
+-
+index PK INT
+player_id INT FK >- players.player_id
+team_id INT FK >- teams.team_id
+player_name VARCHAR(100)
+season INT
+
 salaries
 -
-player_id INT PK FK - players.player_id
+index INT PK
+player_id INT FK - players.player_id
 team_id INT FK >- teams.team_id
 player_name VARCHAR(100)
 salary INT
@@ -23,7 +30,8 @@ season INT
 
 combine
 -
-player_id INT PK FK - players.player_id
+index INT PK
+player_id INT FK - players.player_id
 player_name VARCHAR(100)
 year INT
 team_id INT FK >- teams.team_id
@@ -68,7 +76,8 @@ home_team_wins INT
 
 stats
 -
-player_id INT PK FK - players.player_id
+index INT PK
+player_id INT FK - players.player_id
 team_id INT FK >- teams.team_id
 player_name VARCHAR(100)
 pos VARCHAR(2)
