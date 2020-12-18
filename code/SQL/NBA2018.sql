@@ -22,30 +22,29 @@ CREATE TABLE "teams" (
 );
 
 CREATE TABLE "players_team" (
-    "player_team_id" SERIAL   NOT NULL,
     "player_id" INT   NOT NULL,
     "team_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
     "season" INT   NOT NULL,
+    "player_team_id" SERIAL NOT NULL,
     CONSTRAINT "pk_players_team" PRIMARY KEY (
         "player_team_id"
      )
 );
 
 CREATE TABLE "salaries" (
-    "salary_id" SERIAL   NOT NULL,
     "player_id" INT   NOT NULL,
     "team_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
     "salary" INT   NOT NULL,
     "season" INT   NOT NULL,
+    "salary_id" SERIAL,
     CONSTRAINT "pk_salaries" PRIMARY KEY (
         "salary_id"
      )
 );
 
 CREATE TABLE "combine" (
-    "combine_id" SERIAL   NOT NULL,
     "player_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
     "year" INT   NOT NULL,
@@ -67,6 +66,7 @@ CREATE TABLE "combine" (
     "agility" INT   NOT NULL,
     "sprint" INT   NOT NULL,
     "season" INT   NOT NULL,
+     "combine_id" SERIAL   NOT NULL,
     CONSTRAINT "pk_combine" PRIMARY KEY (
         "combine_id"
      )
@@ -97,7 +97,6 @@ CREATE TABLE "games" (
 );
 
 CREATE TABLE "stats" (
-    "stat_id" SERIAL   NOT NULL,
     "player_id" INT   NOT NULL,
     "team_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
@@ -130,6 +129,7 @@ CREATE TABLE "stats" (
     "tov" INT   NOT NULL,
     "pf" INT   NOT NULL,
     "season" INT   NOT NULL,
+    "stat_id" SERIAL   NOT NULL,
     CONSTRAINT "pk_stats" PRIMARY KEY (
         "stat_id"
      )
