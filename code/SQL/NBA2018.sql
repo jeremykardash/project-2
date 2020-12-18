@@ -2,6 +2,14 @@
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
 
+CREATE TABLE "players" (
+    "player_id" INT   NOT NULL,
+    "player_name" VARCHAR(100)   NOT NULL,
+    CONSTRAINT "pk_players" PRIMARY KEY (
+        "player_id"
+     )
+);
+
 CREATE TABLE "teams" (
     "team_id" INT   NOT NULL,
     "abbreviation" VARCHAR(3)   NOT NULL,
@@ -13,13 +21,14 @@ CREATE TABLE "teams" (
      )
 );
 
-CREATE TABLE "players" (
+CREATE TABLE "player_team" (
+    "player_team_id" SERIAL   NOT NULL,
     "player_id" INT   NOT NULL,
     "team_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
     "season" INT   NOT NULL,
-    CONSTRAINT "pk_players" PRIMARY KEY (
-        "player_id"
+    CONSTRAINT "pk_player_team" PRIMARY KEY (
+        "player_team_id"
      )
 );
 
@@ -126,7 +135,10 @@ CREATE TABLE "stats" (
      )
 );
 
-ALTER TABLE "players" ADD CONSTRAINT "fk_players_team_id" FOREIGN KEY("team_id")
+ALTER TABLE "player_team" ADD CONSTRAINT "fk_player_team_player_id" FOREIGN KEY("player_id")
+REFERENCES "players" ("player_id");
+
+ALTER TABLE "player_team" ADD CONSTRAINT "fk_player_team_team_id" FOREIGN KEY("team_id")
 REFERENCES "teams" ("team_id");
 
 ALTER TABLE "salaries" ADD CONSTRAINT "fk_salaries_player_id" FOREIGN KEY("player_id")
