@@ -21,30 +21,31 @@ CREATE TABLE "teams" (
      )
 );
 
-CREATE TABLE "players_team" (
+CREATE TABLE "players-team" (
+    "index" INT   NOT NULL,
     "player_id" INT   NOT NULL,
     "team_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
     "season" INT   NOT NULL,
-    "player_team_id" SERIAL NOT NULL,
-    CONSTRAINT "pk_players_team" PRIMARY KEY (
-        "player_team_id"
+    CONSTRAINT "pk_players-team" PRIMARY KEY (
+        "index"
      )
 );
 
 CREATE TABLE "salaries" (
+    "index" INT   NOT NULL,
     "player_id" INT   NOT NULL,
     "team_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
     "salary" INT   NOT NULL,
     "season" INT   NOT NULL,
-    "salary_id" SERIAL,
     CONSTRAINT "pk_salaries" PRIMARY KEY (
-        "salary_id"
+        "index"
      )
 );
 
 CREATE TABLE "combine" (
+    "index" INT   NOT NULL,
     "player_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
     "year" INT   NOT NULL,
@@ -66,9 +67,8 @@ CREATE TABLE "combine" (
     "agility" INT   NOT NULL,
     "sprint" INT   NOT NULL,
     "season" INT   NOT NULL,
-     "combine_id" SERIAL   NOT NULL,
     CONSTRAINT "pk_combine" PRIMARY KEY (
-        "combine_id"
+        "index"
      )
 );
 
@@ -97,6 +97,7 @@ CREATE TABLE "games" (
 );
 
 CREATE TABLE "stats" (
+    "index" INT   NOT NULL,
     "player_id" INT   NOT NULL,
     "team_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
@@ -129,16 +130,15 @@ CREATE TABLE "stats" (
     "tov" INT   NOT NULL,
     "pf" INT   NOT NULL,
     "season" INT   NOT NULL,
-    "stat_id" SERIAL   NOT NULL,
     CONSTRAINT "pk_stats" PRIMARY KEY (
-        "stat_id"
+        "index"
      )
 );
 
-ALTER TABLE "players_team" ADD CONSTRAINT "fk_players_team_player_id" FOREIGN KEY("player_id")
+ALTER TABLE "players-team" ADD CONSTRAINT "fk_players-team_player_id" FOREIGN KEY("player_id")
 REFERENCES "players" ("player_id");
 
-ALTER TABLE "players_team" ADD CONSTRAINT "fk_players_team_team_id" FOREIGN KEY("team_id")
+ALTER TABLE "players-team" ADD CONSTRAINT "fk_players-team_team_id" FOREIGN KEY("team_id")
 REFERENCES "teams" ("team_id");
 
 ALTER TABLE "salaries" ADD CONSTRAINT "fk_salaries_player_id" FOREIGN KEY("player_id")
