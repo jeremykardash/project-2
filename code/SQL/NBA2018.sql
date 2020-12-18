@@ -21,13 +21,13 @@ CREATE TABLE "teams" (
      )
 );
 
-CREATE TABLE "player_team" (
+CREATE TABLE "players_team" (
     "player_team_id" SERIAL   NOT NULL,
     "player_id" INT   NOT NULL,
     "team_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
     "season" INT   NOT NULL,
-    CONSTRAINT "pk_player_team" PRIMARY KEY (
+    CONSTRAINT "pk_players_team" PRIMARY KEY (
         "player_team_id"
      )
 );
@@ -135,10 +135,10 @@ CREATE TABLE "stats" (
      )
 );
 
-ALTER TABLE "player_team" ADD CONSTRAINT "fk_player_team_player_id" FOREIGN KEY("player_id")
+ALTER TABLE "players_team" ADD CONSTRAINT "fk_players_team_player_id" FOREIGN KEY("player_id")
 REFERENCES "players" ("player_id");
 
-ALTER TABLE "player_team" ADD CONSTRAINT "fk_player_team_team_id" FOREIGN KEY("team_id")
+ALTER TABLE "players_team" ADD CONSTRAINT "fk_players_team_team_id" FOREIGN KEY("team_id")
 REFERENCES "teams" ("team_id");
 
 ALTER TABLE "salaries" ADD CONSTRAINT "fk_salaries_player_id" FOREIGN KEY("player_id")
