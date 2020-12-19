@@ -103,7 +103,7 @@ CREATE TABLE "stats" (
     "player_id" INT   NOT NULL,
     "team_id" INT   NOT NULL,
     "player_name" VARCHAR(100)   NOT NULL,
-    "pos" VARCHAR(2)   NOT NULL,
+    "pos" VARCHAR(10)   NOT NULL,
     "age" INT   NOT NULL,
     "tm" VARCHAR(3)   NOT NULL,
     "g" REAL   NOT NULL,
