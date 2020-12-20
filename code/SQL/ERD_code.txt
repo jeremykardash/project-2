@@ -1,91 +1,112 @@
-Players
+players
 -
-PLAYER_ID PK INT FK - Player_Salary.PLAYER_ID FK - Player_Stats.PLAYER_ID FK - Combine_Stats.PLAYER_ID
-PLAYER_NAME String
-TEAM_ID INT
-SEASON INT
+player_id INT PK
+player_name VARCHAR(100)
 
-Teams
+teams
 -
-TEAM_ID PK INT FK -< Players.TEAM_ID FK >- Games.VISITOR_TEAM_ID FK >- Games.HOME_TEAM_ID
-ABBREVIATION String
-NICKNAME String
-CITY String
+team_id INT PK
+abbreviation VARCHAR(3)
+nickname VARCHAR(100)
+city VARCHAR(100)
+arena VARCHAR(100)
 
-Games
+players-team
 -
-GAME_ID PK INT
-GAME_DATE Date
-HOME_TEAM_ID INT
-VISITOR_TEAM_ID INT
-SEASON INT
-PTS_home INT
-FG_FCT_home INT
-FT_PCT_home INT
-FG3_PCT_home INT
-AST_home INT
-REB_home INT
-TEAM_ID_away INT
-PTS_away INT
-FG_PCT_away INT
-FT_PCT_away INT
-FG3_PCT_away INT
-AST_away INT
-REB_away INT
-HOME_TEAM_WINS INT
+index PK INT
+player_id INT FK >- players.player_id
+team_id INT FK >- teams.team_id
+player_name VARCHAR(100)
+season INT
 
-Player_Salary
+salaries
 -
-PLAYER_ID PK INT
-PLAYER_NAME String
-SALARY INT
+index INT PK
+player_id INT FK - players.player_id
+team_id INT FK >- teams.team_id
+player_name VARCHAR(100)
+salary INT
+season INT
 
-Combine_Stats
+combine
 -
-PLAYER_ID PK INT
-PLAYER_NAME String
-DRAFT_PICK INT
-HEIGHT(shoes) INT
-HEIGHT(noshoes) INT
-WINGSPAN INT
-STANDING_REACH INT
-VERTICAL(MAX) INT
-WEIGHT INT
-BODY_FAT INT
-BENCH INT
-AGILITY INT
-SPRINT INT
+index INT PK
+player_id INT FK - players.player_id
+player_name VARCHAR(100)
+year INT
+team_id INT FK >- teams.team_id
+draft_pick INT
+height_no_shoes INT
+height_with_shoes INT
+wingspan INT
+standing_reach INT
+vertical_max INT
+vertical_max_reach INT
+vertical_no_step INT
+vertical_no_step_reach INT
+weight INT
+body_fat INT
+hand_length INT
+hand_width INT
+bench INT
+agility INT
+sprint INT
+season INT
 
-Player_Stats
+games
 -
-PLAYER_ID PK INT
-PLAYER String
-POSITION String
-AGE INT
-ABBREVIATION String
-TEAM_ID INT FK >- Teams.TEAM_ID
-GAMES INT
-GAMES_STARTED INT
-MINUTES INT
-FG INT
-FGA INT
-FG% INT
-3P INT
-3PA INT
-3P% INT
-2P INT
-2PA INT
-2P% INT
-eFG% INT
-FT INT
-FTA INT
-FT% INT
-ORB INT
-DRB INT
-TRB INT
-AST INT
-STL INT
-BLK INT
-TOV INT
-PF INT
-PTS INT
+game_id INT PK
+home_team_id INT FK >- teams.team_id
+visitor_team_id INT FK >- teams.team_id
+game_date_est Date
+season INT
+pts_home INT
+fg_pct_home INT
+ft_pct_home INT
+fg3_pct_home INT
+ast_home INT
+reb_home INT
+pts_away INT
+fg_pct_visitor INT
+ft_pct_visitor INT
+fg3_pct_visitor INT
+ast_visitor INT
+reb_visitor INT
+home_team_wins INT
+
+stats
+-
+index INT PK
+player_id INT FK - players.player_id
+team_id INT FK >- teams.team_id
+player_name VARCHAR(100)
+pos VARCHAR(2)
+age INT
+tm VARCHAR(3)
+g INT
+gs INT
+mp INT
+fg INT
+fga INT
+fg% INT
+3p INT
+3pa INT
+3p% INT
+2p INT
+2pa INT
+2p% INT
+efg% INT
+ft INT
+fta INT
+ft% INT
+pts INT
+orb INT
+drb INT
+trb INT
+ast INT
+stl INT
+blk INT
+tov INT
+pf INT
+season INT
+
