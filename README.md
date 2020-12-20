@@ -1,19 +1,33 @@
 Project-2 Directory
 
 Code
+
 -master_run: this file references allt he following files to complete the Extract, Tranform and Load for the project
+
     -SQL: 
+    
         -database sql file 
+        
         -text for ERD
+        
     -web_scraper:
+    
         -chrome driver
+        
         -web_scrape code
+        
     -combine_stats_cleaner
+    
     -data_validation
+    
     -Export_to_SQL
+    
     -players_table_maker
+    
     -salary_clean
+    
     -stats_cleaner
+    
     -team_games_cleaner
 
 
