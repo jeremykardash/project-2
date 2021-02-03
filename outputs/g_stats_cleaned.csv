@@ -1,4 +1,4 @@
-,player_id,team_id,player_name,pos,age,tm,g,gs,mp,fg,fga,fg%,3p,3pa,3p%,2p,2pa,2p%,efg%,ft,fta,ft%,pts,orb,drb,trb,ast,stl,blk,tov,pf,season
+,player_id,team_id,player_name,pos,age,tm,g,gs,mp,fg,fga,fg_percent,ThreeP_m,ThreeP_a,ThreeP_percent,TwoP_m,TwoP_a,TwoP_percent,efg_percent,ft,fta,ft_percent,pts,orb,drb,trb,ast,stl,blk,tov,pf,season
 0,203112,1610612756,Quincy Acy,PF,28,PHO,10,0,12.3,0.4,1.8,0.222,0.2,1.5,0.133,0.2,0.3,0.667,0.278,0.7,1.0,0.7,1.7,0.3,2.2,2.5,0.8,0.1,0.4,0.4,2.4,2018
 1,1629121,1610612737,Jaylen Adams,PG,22,ATL,34,1,12.6,1.1,3.2,0.345,0.7,2.2,0.338,0.4,1.1,0.361,0.459,0.2,0.3,0.778,3.2,0.3,1.4,1.8,1.9,0.4,0.1,0.8,1.3,2018
 2,203500,1610612760,Steven Adams,C,25,OKC,80,80,33.4,6.0,10.1,0.595,0.0,0.0,0.0,6.0,10.1,0.596,0.595,1.8,3.7,0.5,13.9,4.9,4.6,9.5,1.6,1.5,1.0,1.7,2.6,2018
