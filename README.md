@@ -36,10 +36,10 @@ Outputs
 
 
 Proposal/Report
-    -This folder contained the text files for the projet including the proposal and the final report.
+    -This folder contains the text files for the projet including the proposal and the final report.
 
 Resources
-    -This foldeer contains the original csv's that we used for transofrmation. These are raw data sets with no alteration to them
+    -This folder contains the original csv's that we used for transofrmation. These are raw data sets with no alteration to them
 
 Validated_Date
 -This folder contains the data that had been run through out data_validation script. One the data entered our resource folder it was checked for duplicates and consistency throughout. The validated data was then used for transformation. 
